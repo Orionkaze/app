@@ -26,12 +26,16 @@ export default function CustomerLayout({ children }: { children: React.ReactNode
           }
           .desktop-sidebar {
             display: flex;
-            width: 240px;
+            flex-direction: column;
+            width: 280px;
             border-right: 1px solid var(--color-border);
             height: 100vh;
             position: sticky;
             top: 0;
             background-color: var(--color-bg-secondary);
+          }
+          .main-content-wrapper {
+             max-width: 800px !important;
           }
         }
       `}</style>
@@ -39,12 +43,12 @@ export default function CustomerLayout({ children }: { children: React.ReactNode
         
         {/* Desktop Sidebar Fallback (Hidden on Mobile) */}
         <div className="desktop-sidebar border-r border-gray-800">
-           {/* Detailed desktop sidebar can be implemented later */}
+           <DesktopSidebar />
         </div>
 
         {/* Dynamic Content */}
         <main style={{ flex: 1, position: "relative" }}>
-          <div style={{ maxWidth: "600px", margin: "0 auto", padding: "16px", width: "100%", minHeight: "100vh" }}>
+          <div className="main-content-wrapper" style={{ maxWidth: "600px", margin: "0 auto", padding: "16px", width: "100%", minHeight: "100vh" }}>
             {children}
           </div>
         </main>
