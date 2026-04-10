@@ -10,7 +10,7 @@ export function SetupWizard({ onComplete }: { onComplete: () => void }) {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     name: "",
-    category: CATEGORIES[0].name,
+    category: CATEGORIES[0].name as string,
     brandColor: "#E91E8C",
     targetVisits: 10,
     offerText: "Free 10th item"
