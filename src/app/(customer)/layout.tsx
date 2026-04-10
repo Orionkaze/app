@@ -1,5 +1,6 @@
 import React from "react";
 import { BottomTabBar } from "../../components/navigation/BottomTabBar";
+import { DesktopSidebar } from "../../components/navigation/DesktopSidebar";
 
 export default function CustomerLayout({ children }: { children: React.ReactNode }) {
   return (
