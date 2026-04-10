@@ -13,18 +13,17 @@ export async function loginAction(prevState: AuthState, formData: FormData): Pro
     return { error: "Email and Password are required." };
   }
 
-  const supabase = await createClient();
-  const { error } = await supabase.auth.signInWithPassword({
-    email,
-    password,
-  });
+  // MOCK VALIDATION: simulate network delay
+  await new Promise(resolve => setTimeout(resolve, 800));
 
-  if (error) {
-    return { error: error.message };
+  // Determine redirection based on mock business account detection
+  const isBusinessMock = email.includes("business");
+  
+  if (isBusinessMock) {
+    redirect("/business/dashboard"); 
+  } else {
+    redirect("/home"); 
   }
-
-  // Redirect on success
-  redirect("/home"); 
 }
 
 export async function signupAction(prevState: AuthState, formData: FormData): Promise<AuthState> {
@@ -42,21 +41,12 @@ export async function signupAction(prevState: AuthState, formData: FormData): Pr
     return { error: "Please fill in all required fields." };
   }
 
-  const supabase = await createClient();
-  const { error, data } = await supabase.auth.signUp({
-    email,
-    password,
-    options: {
-      data: {
-        name,
-        user_role: role,
-      }
-    }
-  });
+  // MOCK VALIDATION: simulate network delay avoiding "fetch failed" on invalid keys
+  await new Promise(resolve => setTimeout(resolve, 800));
 
-  if (error) {
-    return { error: error.message };
+  if (role === 'business') {
+    redirect("/business/dashboard");
+  } else {
+    redirect("/home");
   }
-
-  redirect("/home");
 }
