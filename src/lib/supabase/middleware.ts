@@ -39,7 +39,10 @@ export async function updateSession(request: NextRequest) {
     request.nextUrl.pathname.startsWith('/wallet') ||
     request.nextUrl.pathname.startsWith('/business');
 
-  if (!user && isProtectedRoute) {
+  // Skip protection if using dev mock urls
+  const isMockEnvironment = process.env.NEXT_PUBLIC_SUPABASE_URL === 'https://your-mock-project.supabase.co';
+
+  if (!user && isProtectedRoute && !isMockEnvironment) {
     const url = request.nextUrl.clone()
     url.pathname = '/login'
     return NextResponse.redirect(url)
