@@ -1,0 +1,62 @@
+"use server";
+
+import { createClient } from "../../lib/supabase/server";
+import { redirect } from "next/navigation";
+
+export type AuthState = { error: string | null };
+
+export async function loginAction(prevState: AuthState, formData: FormData): Promise<AuthState> {
+  const email = formData.get("email") as string;
+  const password = formData.get("password") as string;
+
+  if (!email || !password) {
+    return { error: "Email and Password are required." };
+  }
+
+  const supabase = await createClient();
+  const { error } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  });
+
+  if (error) {
+    return { error: error.message };
+  }
+
+  // Redirect on success
+  redirect("/home"); 
+}
+
+export async function signupAction(prevState: AuthState, formData: FormData): Promise<AuthState> {
+  const email = formData.get("email") as string;
+  const password = formData.get("password") as string;
+  const confirmPassword = formData.get("confirmPassword") as string;
+  const name = formData.get("name") as string;
+  const role = formData.get("role") as string; // 'customer' or 'business'
+  
+  if (password !== confirmPassword) {
+    return { error: "Passwords do not match." };
+  }
+
+  if (!email || !password || !name) {
+    return { error: "Please fill in all required fields." };
+  }
+
+  const supabase = await createClient();
+  const { error, data } = await supabase.auth.signUp({
+    email,
+    password,
+    options: {
+      data: {
+        name,
+        user_role: role,
+      }
+    }
+  });
+
+  if (error) {
+    return { error: error.message };
+  }
+
+  redirect("/home");
+}

@@ -1,1 +1,105 @@
-@import "tailwindcss";
+:root {
+  /* Colors */
+  --color-bg-primary: #0A0A0A;
+  --color-bg-secondary: #1A1A2E;
+  --color-bg-tertiary: #12121F;
+  --color-bg-card: rgba(255, 255, 255, 0.04);
+  
+  --color-pink-50: #FFF0F7;
+  --color-pink-100: #FFE0F0;
+  --color-pink-200: #FFC2E0;
+  --color-pink-300: #FF85C0;
+  --color-pink-400: #F55FA0;
+  --color-pink-500: #E91E8C;
+  --color-pink-600: #C71678;
+  --color-pink-700: #A31264;
+  --color-pink-800: #7A0E4B;
+  --color-pink-900: #520A33;
+  
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #A0A0B8;
+  --color-text-muted: #6B6B80;
+  
+  --color-border: #2D2D44;
+  --color-border-pink: rgba(233, 30, 140, 0.15);
+  --color-border-pink-strong: rgba(233, 30, 140, 0.4);
+  
+  --color-success: #22C55E;
+  --color-error: #EF4444;
+  --color-warning: #F59E0B;
+  --color-info: #3B82F6;
+  
+  /* Spacing */
+  --spacing-0: 0px;
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 20px;
+  --spacing-6: 24px;
+  --spacing-8: 32px;
+  --spacing-10: 40px;
+  --spacing-12: 48px;
+  --spacing-16: 64px;
+  --spacing-24: 96px;
+  
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 0 3px rgba(233, 30, 140, 0.2);
+  --shadow-glow-strong: 0 0 24px rgba(233, 30, 140, 0.3);
+}
+
+/* Reset and Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-dm-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  height: 100%;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  color: inherit;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+input, textarea {
+  font-family: inherit;
+}
+
+/* Utility Classes */
+.glass-panel {
+  background: var(--color-bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--color-border-pink);
+  box-shadow: var(--shadow-card);
+}
