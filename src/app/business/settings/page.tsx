@@ -102,7 +102,7 @@ export default function BusinessSettingsPage() {
             />
             
             <div>
-              <Button variant="secondary" type="button" style={{ fontSize: "14px" }}>
+              <Button variant="ghost" type="button" style={{ fontSize: "14px" }}>
                 Send Password Reset Email
               </Button>
             </div>
