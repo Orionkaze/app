@@ -49,7 +49,7 @@ export default function BusinessDashboardPage() {
          <div className="glass-panel" style={{ padding: "24px", borderRadius: "16px", borderLeft: "4px solid #3b82f6" }}>
            <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "16px", color: "#3b82f6" }}>
               <FontAwesomeIcon icon={faUsers} style={{ fontSize: "24px" }} />
-              <h3 style={{ fontSize: "16px", fontWeight: 600, color: "var(--color-text-secondary)', margin: 0 }}>Total Enrollments</h3>
+              <h3 style={{ fontSize: "16px", fontWeight: 600, color: "var(--color-text-secondary)", margin: 0 }}>Total Enrollments</h3>
            </div>
            <div style={{ fontSize: "36px", fontWeight: "bold", color: "#FFF" }}>1,204</div>
          </div>
@@ -57,7 +57,7 @@ export default function BusinessDashboardPage() {
          <div className="glass-panel" style={{ padding: "24px", borderRadius: "16px", borderLeft: "4px solid var(--color-pink-500)" }}>
            <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "16px", color: "var(--color-pink-500)" }}>
               <FontAwesomeIcon icon={faQrcode} style={{ fontSize: "24px" }} />
-              <h3 style={{ fontSize: "16px", fontWeight: 600, color: "var(--color-text-secondary)', margin: 0 }}>Scans This Week</h3>
+              <h3 style={{ fontSize: "16px", fontWeight: 600, color: "var(--color-text-secondary)", margin: 0 }}>Scans This Week</h3>
            </div>
            <div style={{ fontSize: "36px", fontWeight: "bold", color: "#FFF" }}>487</div>
          </div>
@@ -65,7 +65,7 @@ export default function BusinessDashboardPage() {
          <div className="glass-panel" style={{ padding: "24px", borderRadius: "16px", borderLeft: "4px solid #10b981" }}>
            <div style={{ display: "flex", alignItems: "center", gap: "16px", marginBottom: "16px", color: "#10b981" }}>
               <FontAwesomeIcon icon={faGift} style={{ fontSize: "24px" }} />
-              <h3 style={{ fontSize: "16px", fontWeight: 600, color: "var(--color-text-secondary)', margin: 0 }}>Rewards Redeemed</h3>
+              <h3 style={{ fontSize: "16px", fontWeight: 600, color: "var(--color-text-secondary)", margin: 0 }}>Rewards Redeemed</h3>
            </div>
            <div style={{ fontSize: "36px", fontWeight: "bold", color: "#FFF" }}>112</div>
          </div>
